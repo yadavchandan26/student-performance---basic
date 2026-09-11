@@ -42,7 +42,7 @@ def features_selection(data):
     y=data['Grade']
     return x,y
     
-def processing(data_path):
+def processing(data_path,feature_cols):
     data=load_data(data_path)
     
     data=total_marks(data)

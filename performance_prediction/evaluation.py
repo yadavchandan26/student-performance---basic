@@ -8,10 +8,10 @@ def evaluate_model(model, x_train, y_train):
     return score
 
 
-def generate_submission(data, y_pred, output_path='submission.csv'):
+def generate_submission(id_test, y_pred, output_path='submission.csv'):
     
     submission = pd.DataFrame({
-        'Student_ID	': data['Student_ID	'],
+        'Student_ID': id_test,
         'Grade': y_pred
     })
     submission.to_csv(output_path, index=False)

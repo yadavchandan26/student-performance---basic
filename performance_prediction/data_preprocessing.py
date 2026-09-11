@@ -40,19 +40,20 @@ def features_selection(data):
     feature_cols=['English_Score','Math_Score','Science_Score']
     x=data[feature_cols]
     y=data['Grade']
-    return x,y
+    ids=data['Student_ID']
+    return x,y,ids
     
-def processing(data_path):
+def processing(data_path,feature_cols):
     data=load_data(data_path)
     
     data=total_marks(data)
     data=percentage_calc(data)
     data=add_grades(data)
 
-    x,y=features_selection(data)
+    x,y,ids=features_selection(data)
 
-    x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=.25,random_state=42)
+    x_train,x_test,y_train,y_test,id_train,id_test=train_test_split(x,y,ids,test_size=.25,random_state=42)
 
-    return x_train,x_test,y_train,y_test
+    return x_train,x_test,y_train,y_test,id_test
     
 
