@@ -1,7 +1,8 @@
+import joblib
 from sklearn.linear_model import LogisticRegression
 
 def train_model(x_train,y_train):
     model=LogisticRegression(max_iter=1000)
     model.fit(x_train,y_train)
-    
+    joblib.dump(model,'saved_model.pkl')
     return model
