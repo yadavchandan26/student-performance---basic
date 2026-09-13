@@ -1,6 +1,6 @@
 import joblib 
 
-def predict_grade(math_score,science_score,english_score):
+def predict_grade(english_score,math_score,science_score):
     model=joblib.load('saved_model.pkl')
 
     features = [[english_score, math_score, science_score]]
